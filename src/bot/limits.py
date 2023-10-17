@@ -1,0 +1,6 @@
+# tg limits
+MAX_INLINE_RESULTS_PER_PAGE = 50
+MAX_PHOTOS_PER_MESSAGE = 10
+
+# custom limits
+MAX_PHOTOS_PER_DAY = 15

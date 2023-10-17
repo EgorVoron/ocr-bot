@@ -1,0 +1,9 @@
+{
+  "tg_token": "725309560:AAE2dEOr2_9ve9sknL0FnH0FAdirZD0TCi4",
+  "mongo_name": "memery_prod",
+  "tesseract_path": "tesseract",
+  "admins": [496233529],
+  "log_file": "../logs/bot.log",
+  "backups_dir": "../backups",
+  "mongo_url":  "mongodb://root:purple_people_eater_@mongodb:27017/memery_prod?authSource=admin"
+}

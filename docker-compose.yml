@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+  mongo:
+    container_name: mongodb
+    image: mongo:4.4.6 # 5.0 fails
+    command: mongod --logpath=/dev/null
+    env_file:
+      - .env
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - MONGO_INITDB_ROOT_USERNAME=${mongo_user}
+      - MONGO_INITDB_ROOT_PASSWORD=${mongo_password}
+    volumes:
+      - './data:/data/db'
+    ports:
+      - "27017:27017"
+    restart: always
+
+
+  bot:
+    container_name: bot-ocr
+    build:
+      dockerfile: docker/bot.Dockerfile
+    links:
+      - "mongo:mongo"
+    restart: always
+    depends_on:
+      - mongo
+
+
+  promotion_alert:
+    container_name: promotion-alert
+    build:
+      dockerfile: docker/promotion_alert.Dockerfile
+    links:
+      - "mongo:mongo"
+    restart: always
+    depends_on:
+      - mongo

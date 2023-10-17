@@ -1,0 +1,1 @@
+from bot.middlewares.setup_middlewares import setup_middlewares
